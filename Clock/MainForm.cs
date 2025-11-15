@@ -31,12 +31,23 @@ namespace Clock
 				labelTime.Text += $"\n{DateTime.Now.DayOfWeek}";
 			}
 		}
-
+		void SetVisibility (bool visible)
+		{
+			checkBoxShowDate.Visible = visible;
+			checkBoxShowWeekday.Visible = visible;
+			buttonHideControls.Visible = visible;
+			this.FormBorderStyle = visible?  FormBorderStyle.FixedToolWindow : FormBorderStyle.None;
+			this.TransparencyKey = visible ? Color.Empty : this.BackColor;
+			ShowInTaskbar = visible;
+		}
 		private void buttonHideControls_Click(object sender, EventArgs e)
 		{
-			checkBoxShowDate.Visible = false;
-			checkBoxShowWeekday.Visible = false;
+			SetVisibility(false);
+		}
 
+		private void labelTime_DoubleClick(object sender, EventArgs e)
+		{
+			SetVisibility(true);
 		}
 	}
 }
