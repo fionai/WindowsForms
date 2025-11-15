@@ -15,6 +15,7 @@ namespace Clock
 		public MainForm()
 		{
 			InitializeComponent();
+			SetVisibility(false);
 		}
 
 		private void timer_Tick(object sender, EventArgs e)
@@ -40,14 +41,38 @@ namespace Clock
 			this.TransparencyKey = visible ? Color.Empty : this.BackColor;
 			ShowInTaskbar = visible;
 		}
-		private void buttonHideControls_Click(object sender, EventArgs e)
+		private void buttonHideControls_Click(object sender, EventArgs e) =>
+			SetVisibility(tsmiShowControls.Checked = false);
+
+		private void labelTime_DoubleClick(object sender, EventArgs e) =>
+			SetVisibility(tsmiShowControls.Checked = true);
+
+		private void notifyIcon_DoubleClick(object sender, EventArgs e)
 		{
-			SetVisibility(false);
+			this.TopMost = true;
+			this.TopMost = false;
+
 		}
 
-		private void labelTime_DoubleClick(object sender, EventArgs e)
-		{
-			SetVisibility(true);
-		}
+		private void tsmiQuit_Click(object sender, EventArgs e) =>
+			this.Close();	
+
+		private void tsmiTopmost_Click(object sender, EventArgs e) =>
+			this.TopMost = tsmiTopmost.Checked;
+
+		private void tsmiShowDate_Click(object sender, EventArgs e) =>
+			checkBoxShowDate.Checked = tsmiShowDate.Checked;
+
+		private void checkBoxShowDate_CheckedChanged(object sender, EventArgs e) =>
+			tsmiShowDate.Checked = checkBoxShowDate.Checked;
+
+		private void tsmiShowWeekday_Click(object sender, EventArgs e) =>
+			checkBoxShowWeekday.Checked = tsmiShowWeekday.Checked;
+
+		private void checkBoxShowWeekday_CheckedChanged(object sender, EventArgs e) =>
+			tsmiShowWeekday.Checked = (sender as CheckBox).Checked;
+
+		private void tsmiShowControls_Click(object sender, EventArgs e) =>
+			SetVisibility(tsmiShowControls.Checked);
 	}
 }
