@@ -12,10 +12,18 @@ namespace Clock
 {
 	public partial class MainForm : Form
 	{
+		ColorDialog backgroundDialog;
+		ColorDialog foregroundDialog;
 		public MainForm()
 		{
 			InitializeComponent();
 			SetVisibility(false);
+			backgroundDialog = new ColorDialog();
+			foregroundDialog = new ColorDialog();
+			this.Location = new Point(
+			Screen.PrimaryScreen.Bounds.Width - this.labelTime.Width - 150,
+			50
+			);
 		}
 
 		private void timer_Tick(object sender, EventArgs e)
@@ -74,5 +82,18 @@ namespace Clock
 
 		private void tsmiShowControls_Click(object sender, EventArgs e) =>
 			SetVisibility(tsmiShowControls.Checked);
+
+		private void tsmiBackgroundColor_Click(object sender, EventArgs e)
+		{
+			if (backgroundDialog.ShowDialog() == DialogResult.OK)
+				labelTime.BackColor = backgroundDialog.Color;
+
+		}
+
+		private void tsmiForegroundColor_Click(object sender, EventArgs e)
+		{
+			if (foregroundDialog.ShowDialog() == DialogResult.OK)
+				labelTime.ForeColor = foregroundDialog.Color;
+		}
 	}
 }
