@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.IO;
+using System.Reflection;
+
 
 namespace Clock
 {
@@ -29,6 +32,7 @@ namespace Clock
 			Screen.PrimaryScreen.Bounds.Width - this.labelTime.Width - 150,
 			50
 			);
+			this.TopMost = true;
 		}
 
 		private void timer_Tick(object sender, EventArgs e)
