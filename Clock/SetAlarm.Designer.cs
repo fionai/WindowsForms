@@ -120,7 +120,7 @@
 			// 
 			this.buttonAlarmOK.AutoEllipsis = true;
 			this.buttonAlarmOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-			this.buttonAlarmOK.Location = new System.Drawing.Point(23, 186);
+			this.buttonAlarmOK.Location = new System.Drawing.Point(23, 318);
 			this.buttonAlarmOK.Name = "buttonAlarmOK";
 			this.buttonAlarmOK.Size = new System.Drawing.Size(159, 52);
 			this.buttonAlarmOK.TabIndex = 12;
@@ -133,7 +133,7 @@
 			// 
 			this.buttonAlarmCancel.AutoEllipsis = true;
 			this.buttonAlarmCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-			this.buttonAlarmCancel.Location = new System.Drawing.Point(190, 186);
+			this.buttonAlarmCancel.Location = new System.Drawing.Point(190, 318);
 			this.buttonAlarmCancel.Name = "buttonAlarmCancel";
 			this.buttonAlarmCancel.Size = new System.Drawing.Size(158, 52);
 			this.buttonAlarmCancel.TabIndex = 13;
@@ -147,9 +147,9 @@
 			this.comboBoxAlarmMelody.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxAlarmMelody.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
 			this.comboBoxAlarmMelody.FormattingEnabled = true;
-			this.comboBoxAlarmMelody.Location = new System.Drawing.Point(23, 123);
+			this.comboBoxAlarmMelody.Location = new System.Drawing.Point(22, 123);
 			this.comboBoxAlarmMelody.Name = "comboBoxAlarmMelody";
-			this.comboBoxAlarmMelody.Size = new System.Drawing.Size(325, 39);
+			this.comboBoxAlarmMelody.Size = new System.Drawing.Size(321, 39);
 			this.comboBoxAlarmMelody.TabIndex = 14;
 			this.comboBoxAlarmMelody.Visible = false;
 			// 
