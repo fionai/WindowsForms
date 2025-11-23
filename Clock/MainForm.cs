@@ -16,6 +16,7 @@ namespace Clock
 		ColorDialog backgroundDialog;
 		ColorDialog foregroundDialog;
 		ChooseFont fontDialog;
+		SetAlarm setAlarm;
 		public MainForm()
 		{
 			InitializeComponent();
@@ -23,6 +24,7 @@ namespace Clock
 			backgroundDialog = new ColorDialog();
 			foregroundDialog = new ColorDialog();
 			fontDialog = new ChooseFont();
+			setAlarm = new SetAlarm();
 			this.Location = new Point(
 			Screen.PrimaryScreen.Bounds.Width - this.labelTime.Width - 150,
 			50
@@ -31,9 +33,9 @@ namespace Clock
 
 		private void timer_Tick(object sender, EventArgs e)
 		{
-			//labelTime.Text = DateTime.Now.ToString("HH:mm:ss"); //24-час
-			labelTime.Text = DateTime.Now.ToString("hh:mm:ss tt", 
-				System.Globalization.CultureInfo.InvariantCulture); //12-час AM-PM
+			labelTime.Text = DateTime.Now.ToString("HH:mm:ss"); //24-час
+			//labelTime.Text = DateTime.Now.ToString("hh:mm:ss tt", 
+			//	System.Globalization.CultureInfo.InvariantCulture); //12-час AM-PM
 			if (checkBoxShowDate.Checked)
 			{
 				labelTime.Text += $"\n{DateTime.Now.ToString("yyyy.MM.dd")}";
@@ -114,6 +116,11 @@ namespace Clock
 			{
 				labelTime.Font = fontDialog.Font;
 			}
+		}
+
+		private void tsmiSetAlarm_Click(object sender, EventArgs e)
+		{
+			setAlarm.ShowDialog();
 		}
 	}
 }

@@ -52,6 +52,8 @@
 			this.checkBoxShowWeekday = new System.Windows.Forms.CheckBox();
 			this.buttonHideControls = new System.Windows.Forms.Button();
 			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+			this.tsmiSetAlarm = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
 			this.contextMenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -79,6 +81,8 @@
             this.tsmiShowControls,
             this.tsmiShowConsole,
             this.toolStripSeparator2,
+            this.tsmiSetAlarm,
+            this.toolStripSeparator5,
             this.tsmiChooseFont,
             this.tsmiColors,
             this.toolStripSeparator3,
@@ -86,7 +90,7 @@
             this.toolStripSeparator4,
             this.tsmiQuit});
 			this.contextMenuStrip.Name = "contextMenuStrip";
-			this.contextMenuStrip.Size = new System.Drawing.Size(240, 244);
+			this.contextMenuStrip.Size = new System.Drawing.Size(240, 302);
 			// 
 			// tsmiTopmost
 			// 
@@ -240,11 +244,23 @@
 			this.notifyIcon.Visible = true;
 			this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
 			// 
+			// tsmiSetAlarm
+			// 
+			this.tsmiSetAlarm.Name = "tsmiSetAlarm";
+			this.tsmiSetAlarm.Size = new System.Drawing.Size(239, 24);
+			this.tsmiSetAlarm.Text = "Alarms";
+			this.tsmiSetAlarm.Click += new System.EventHandler(this.tsmiSetAlarm_Click);
+			// 
+			// toolStripSeparator5
+			// 
+			this.toolStripSeparator5.Name = "toolStripSeparator5";
+			this.toolStripSeparator5.Size = new System.Drawing.Size(236, 6);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(422, 452);
+			this.ClientSize = new System.Drawing.Size(576, 452);
 			this.Controls.Add(this.buttonHideControls);
 			this.Controls.Add(this.checkBoxShowWeekday);
 			this.Controls.Add(this.checkBoxShowDate);
@@ -285,6 +301,8 @@
 		private System.Windows.Forms.ToolStripMenuItem tsmiAutoStart;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
 		private System.Windows.Forms.ToolStripMenuItem tsmiShowConsole;
+		private System.Windows.Forms.ToolStripMenuItem tsmiSetAlarm;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
 	}
 }
 
