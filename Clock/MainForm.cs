@@ -30,6 +30,7 @@ namespace Clock
 			50
 			);
 			tsmiTopmost.Checked = this.TopMost = true;
+			//AllocConsole();
 		}
 
 		private void timer_Tick(object sender, EventArgs e)

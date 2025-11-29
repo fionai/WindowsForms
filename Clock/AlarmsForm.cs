@@ -28,8 +28,12 @@ namespace Clock
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
 
-			AddAlarmForm addAlarm = new AddAlarmForm(this);
-			addAlarm.ShowDialog();
+			AddAlarmForm alarmDialog = new AddAlarmForm(this);
+			if(alarmDialog.ShowDialog() == DialogResult.OK)
+			{
+				lbAlarmList.Items.Add(alarmDialog.Alarm);
+			}
+
 		}
 
 		private void AlarmsForm_Load(object sender, EventArgs e)

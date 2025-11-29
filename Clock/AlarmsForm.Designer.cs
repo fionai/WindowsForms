@@ -65,11 +65,12 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(937, 612);
 			this.Controls.Add(this.btnDeletye);
 			this.Controls.Add(this.btnAdd);
 			this.Controls.Add(this.lbAlarmList);
 			this.Name = "AlarmsForm";
+			this.ShowInTaskbar = false;
 			this.Text = "AlarmsForm";
 			this.Load += new System.EventHandler(this.AlarmsForm_Load);
 			this.ResumeLayout(false);

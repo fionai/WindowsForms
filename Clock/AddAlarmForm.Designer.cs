@@ -90,6 +90,7 @@
 			this.clbWeekDays.Name = "clbWeekDays";
 			this.clbWeekDays.Size = new System.Drawing.Size(625, 35);
 			this.clbWeekDays.TabIndex = 3;
+			this.clbWeekDays.MouseUp += new System.Windows.Forms.MouseEventHandler(this.clbWeekDays_MouseUp);
 			// 
 			// btnFile
 			// 
@@ -135,7 +136,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(662, 487);
+			this.ClientSize = new System.Drawing.Size(776, 661);
 			this.Controls.Add(this.lblFile);
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.btnOK);
@@ -146,6 +147,7 @@
 			this.Controls.Add(this.cbUseDate);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "AddAlarmForm";
+			this.ShowInTaskbar = false;
 			this.Text = "AddAlarmForm";
 			this.Load += new System.EventHandler(this.AddAlarmForm_Load);
 			this.ResumeLayout(false);
