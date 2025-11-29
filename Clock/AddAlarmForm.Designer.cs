@@ -31,6 +31,7 @@
 			this.cbUseDate = new System.Windows.Forms.CheckBox();
 			this.dtpDate = new System.Windows.Forms.DateTimePicker();
 			this.dtpTime = new System.Windows.Forms.DateTimePicker();
+			this.clbWeekDays = new System.Windows.Forms.CheckedListBox();
 			this.SuspendLayout();
 			// 
 			// cbUseDate
@@ -64,11 +65,31 @@
 			this.dtpTime.Size = new System.Drawing.Size(272, 50);
 			this.dtpTime.TabIndex = 2;
 			// 
+			// clbWeekDays
+			// 
+			this.clbWeekDays.ColumnWidth = 58;
+			this.clbWeekDays.FormattingEnabled = true;
+			this.clbWeekDays.IntegralHeight = false;
+			this.clbWeekDays.Items.AddRange(new object[] {
+            "Пн",
+            "Вт",
+            "Ср",
+            "Чт",
+            "Пт",
+            "Сб",
+            "Вс"});
+			this.clbWeekDays.Location = new System.Drawing.Point(13, 145);
+			this.clbWeekDays.MultiColumn = true;
+			this.clbWeekDays.Name = "clbWeekDays";
+			this.clbWeekDays.Size = new System.Drawing.Size(707, 30);
+			this.clbWeekDays.TabIndex = 3;
+			// 
 			// AddAlarmForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(770, 487);
+			this.Controls.Add(this.clbWeekDays);
 			this.Controls.Add(this.dtpTime);
 			this.Controls.Add(this.dtpDate);
 			this.Controls.Add(this.cbUseDate);
@@ -84,5 +105,6 @@
 		private System.Windows.Forms.CheckBox cbUseDate;
 		private System.Windows.Forms.DateTimePicker dtpDate;
 		private System.Windows.Forms.DateTimePicker dtpTime;
+		private System.Windows.Forms.CheckedListBox clbWeekDays;
 	}
 }

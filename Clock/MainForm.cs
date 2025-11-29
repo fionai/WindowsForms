@@ -16,13 +16,16 @@ namespace Clock
 		ColorDialog backgroundDialog;
 		ColorDialog foregroundDialog;
 		ChooseFont fontDialog;
+		AlarmsForm alarms;
 		public MainForm()
 		{
 			InitializeComponent();
 			SetVisibility(false);
 			backgroundDialog = new ColorDialog();
 			foregroundDialog = new ColorDialog();
+
 			fontDialog = new ChooseFont();
+			alarms = new AlarmsForm();
 			this.Location = new Point(
 			Screen.PrimaryScreen.Bounds.Width - this.labelTime.Width - 150,
 			50
@@ -114,6 +117,11 @@ namespace Clock
 			{
 				labelTime.Font = fontDialog.Font;
 			}
+		}
+
+		private void tsmiAlarms_Click(object sender, EventArgs e)
+		{
+			alarms.ShowDialog();
 		}
 	}
 }
