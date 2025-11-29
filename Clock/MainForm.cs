@@ -23,13 +23,13 @@ namespace Clock
 			SetVisibility(false);
 			backgroundDialog = new ColorDialog();
 			foregroundDialog = new ColorDialog();
-
 			fontDialog = new ChooseFont();
-			alarms = new AlarmsForm();
+			alarms = new AlarmsForm(this);
 			this.Location = new Point(
-			Screen.PrimaryScreen.Bounds.Width - this.labelTime.Width - 150,
+			Screen.PrimaryScreen.Bounds.Width - this.labelTime.Width - 200,
 			50
 			);
+			tsmiTopmost.Checked = this.TopMost = true;
 		}
 
 		private void timer_Tick(object sender, EventArgs e)
@@ -45,6 +45,7 @@ namespace Clock
 			{ 
 				labelTime.Text += $"\n{DateTime.Now.DayOfWeek}";
 			}
+			notifyIcon.Text = labelTime.Text;
 		}
 		void SetVisibility (bool visible)
 		{
@@ -121,7 +122,7 @@ namespace Clock
 
 		private void tsmiAlarms_Click(object sender, EventArgs e)
 		{
-			alarms.ShowDialog();
+			alarms.ShowDialog(this);
 		}
 	}
 }
