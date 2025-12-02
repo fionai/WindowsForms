@@ -32,7 +32,80 @@ namespace Clock
 			Screen.PrimaryScreen.Bounds.Width - this.labelTime.Width - 150,
 			50
 			);
+
+			string iniPath = Application.ExecutablePath;
+			iniPath = iniPath.Remove(iniPath.IndexOf("bin\\"));
+			string iniFile = iniPath + "settings_clock.ini";
+
+			StreamReader sr = new StreamReader(iniFile);
+
+			//TopMost
 			this.TopMost = true;
+			string currentString = sr.ReadLine();
+			currentString = currentString.Remove(0, 8);
+			if (currentString == "0")
+				TopMost = false;
+			else if (currentString == "1")
+				TopMost = true;
+
+			//Show_date
+			checkBoxShowDate.Checked = tsmiShowDate.Checked = false;
+			currentString = sr.ReadLine();
+			currentString = currentString.Remove(0, 10);
+			if (currentString == "0")
+				checkBoxShowDate.Checked = tsmiShowDate.Checked = false;
+			else if (currentString == "1")
+				checkBoxShowDate.Checked = tsmiShowDate.Checked = true;
+
+			//Weekday
+			checkBoxShowWeekday.Checked = tsmiShowWeekday.Checked = false;
+			currentString = sr.ReadLine();
+			currentString = currentString.Remove(0, 13);
+			if (currentString == "0")
+				checkBoxShowWeekday.Checked = tsmiShowWeekday.Checked = false;
+			else if (currentString == "1")
+				checkBoxShowWeekday.Checked = tsmiShowWeekday.Checked = true;
+
+			//font
+			//пока не буду
+			currentString = sr.ReadLine();
+			
+
+			//color_f
+			//пока не буду
+			currentString = sr.ReadLine();
+
+
+
+			//color_b
+			//пока не буду
+			currentString = sr.ReadLine();
+
+			//alarms_num 
+			int alarms_num = 0;
+			currentString = sr.ReadLine();
+			currentString = currentString.Remove(0, 11);
+			//if (currentString == "0" || currentString == "")
+			if (currentString == "1")
+			{
+				alarms_num++;
+
+				//alarm1_hh
+				currentString = sr.ReadLine();
+				currentString = currentString.Remove(0, 10);
+				int hh = int.Parse(currentString);
+
+				//alarm1_mm
+				currentString = sr.ReadLine();
+				currentString = currentString.Remove(0, 10);
+				int mm = int.Parse(currentString);
+
+
+				//alarm1_music
+				currentString = sr.ReadLine();
+				currentString = currentString.Remove(0, 13);
+				string melodyPath = iniPath + "melody\\" + currentString;
+			}
 		}
 
 		private void timer_Tick(object sender, EventArgs e)
@@ -61,8 +134,11 @@ namespace Clock
 		private void buttonHideControls_Click(object sender, EventArgs e) =>
 			SetVisibility(tsmiShowControls.Checked = false);
 
-		private void labelTime_DoubleClick(object sender, EventArgs e) =>
-			SetVisibility(tsmiShowControls.Checked = true);
+		private void labelTime_DoubleClick(object sender, EventArgs e)
+		{
+			//SetVisibility(tsmiShowControls.Checked = true);
+			SetVisibility(tsmiShowControls.Checked = !tsmiShowControls.Checked);
+		}
 
 		private void notifyIcon_DoubleClick(object sender, EventArgs e)
 		{
@@ -125,6 +201,11 @@ namespace Clock
 		private void tsmiSetAlarm_Click(object sender, EventArgs e)
 		{
 			setAlarm.ShowDialog();
+		}
+
+		private void labelTime_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

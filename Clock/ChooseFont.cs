@@ -21,8 +21,7 @@ namespace Clock
 		{
 			InitializeComponent();
 			LoadFonts();
-			comboBoxFont.SelectedIndex = 10;
-			//numericUpDownFontSize.Value = 32;
+			comboBoxFont.SelectedIndex = 1;
 		}
 		void LoadFonts()
 		{
@@ -70,7 +69,8 @@ namespace Clock
 		void ViewExampleFont()
 		{
 			PrivateFontCollection pfc = new PrivateFontCollection();
-			pfc.AddFontFile(comboBoxFont.SelectedItem.ToString());
+			string sFont = comboBoxFont.SelectedItem.ToString();
+			pfc.AddFontFile(sFont);
 			labelExample.Font = new Font( pfc.Families[0], (int)numericUpDownFontSize.Value);
 
 		}
@@ -78,6 +78,11 @@ namespace Clock
 		private void numericUpDownFontSize_ValueChanged(object sender, EventArgs e)
 		{
 			ViewExampleFont();
+
+		}
+
+		private void labelExample_Click(object sender, EventArgs e)
+		{
 
 		}
 	}
