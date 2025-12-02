@@ -163,13 +163,12 @@ namespace Clock
 				buttonAlarmStop.Visible = true;
 				buttonAlarmDelete1.Visible = false;
 				pickerAlarmTime1.Visible = false;
-
-				numericAlarms--;
+				if (numericAlarms > 0)
+					numericAlarms--;
 				isActualAlarms[0] = 0;
 				buttonAlarmAdd.Visible = true;
 			}
-			else if (numericAlarms == 0 && ( DateTime.Now.Hour != pickerAlarmTime1.Value.Hour || DateTime.Now.Minute != pickerAlarmTime1.Value.Minute))
-
+			else if (/*numericAlarms == 0 && */( DateTime.Now.Hour != pickerAlarmTime1.Value.Hour || DateTime.Now.Minute != pickerAlarmTime1.Value.Minute))
 			{
 				isPlaying = false;
 				buttonAlarmStop.Visible = false;
@@ -188,8 +187,8 @@ namespace Clock
 				buttonAlarmDelete2.Visible = false;
 				pickerAlarmTime2.Visible = false;
 				//pickerAlarmTime1.Value = null;
-
-				numericAlarms--;
+				if (numericAlarms > 0)
+					numericAlarms--;
 				isActualAlarms[1] = 0;
 				buttonAlarmAdd.Visible = true;
 			}
