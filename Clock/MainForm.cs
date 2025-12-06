@@ -17,6 +17,7 @@ namespace Clock
 		ColorDialog foregroundDialog;
 		ChooseFont fontDialog;
 		AlarmsForm alarms;
+		Alarm alarm;
 		public MainForm()
 		{
 			InitializeComponent();
@@ -31,6 +32,7 @@ namespace Clock
 			);
 			tsmiTopmost.Checked = this.TopMost = true;
 			//AllocConsole();
+			axWindowsMediaPlayer.Visible = false;
 		}
 
 		private void timer_Tick(object sender, EventArgs e)
@@ -47,6 +49,18 @@ namespace Clock
 				labelTime.Text += $"\n{DateTime.Now.DayOfWeek}";
 			}
 			notifyIcon.Text = labelTime.Text;
+			//alarm = new Alarm(alarms.);
+			if (alarms.Alarm != null)
+			{
+				alarm = alarms.Alarm;
+				if (alarm.Time.Hour == DateTime.Now.Hour && alarm.Time.Minute == DateTime.Now.Minute)
+				{
+					//MessageBox.Show(alarm.ToString());
+					axWindowsMediaPlayer.URL = alarm.Filename;
+					axWindowsMediaPlayer.Ctlcontrols.play();
+				}
+				//MessageBox.Show(alarm.ToString());
+			}
 		}
 		void SetVisibility (bool visible)
 		{

@@ -23,6 +23,7 @@ namespace Clock
 			fileDialog = new OpenFileDialog();
 			Alarm = new Alarm();
 			fileDialog.Filter = "All files|*.mp3;*.flacc|MP-3 file (*.mp3)|*.mp3|Flacc files (*.flacc)|*.flacc";
+					
 		}
 		public AddAlarmForm(Form parent):this()
 		{
@@ -32,7 +33,7 @@ namespace Clock
 
 		private void btnOK_Click(object sender, EventArgs e)
 		{
-			Alarm.Date = dtpDate.Value;
+			Alarm.Date = dtpDate.Enabled ? dtpDate.Value : DateTime.MaxValue;
 			Alarm.Time = dtpTime.Value;
 			Alarm.Filename = lblFile.Text;
 			Alarm.WeekdaysFromArray(WeekdaysToArray());

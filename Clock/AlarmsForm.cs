@@ -13,6 +13,8 @@ namespace Clock
 	public partial class AlarmsForm : Form
 	{
 		Form parent;
+		public Alarm Alarm = null;
+		//public AlarmsForm 
 		public AlarmsForm()
 		{
 			InitializeComponent();
@@ -41,6 +43,15 @@ namespace Clock
 			this.Location = new Point(parent.Location.X-50, parent.Location.Y+150);
 			this.TopMost = true;
 			this.TopMost = false;
+		}
+
+		private void timer_Tick(object sender, EventArgs e)
+		{
+			if (lbAlarmList.Items.Count > 0)
+			{
+				lbAlarmList.SelectedIndex = 0;
+				Alarm = new Alarm(lbAlarmList.SelectedItem as Alarm);
+			}
 		}
 	}
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Odbc;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,19 @@ namespace Clock
 			{
 				Weekdays |= (byte)(1 << days[i]);
 			}
+		}
+		public Alarm() { }
+		public Alarm(Alarm other)
+		{
+			//string[] values = data.Split('-');
+			////this.Data = new DateTime(values[0]);
+			//string[] time = values[1].Split(':');
+			//this.Time = new DateTime(values[1]);
+			this.Date = other.Date;
+			this.Time = other.Time;
+			this.Weekdays = other.Weekdays;
+			this.Filename = other.Filename;
+
 		}
 		public override string ToString()
 		{
